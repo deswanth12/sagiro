@@ -1,7 +1,7 @@
 name: sagiro
 description: "Sagiro - Your money, simplified"
 publish_to: 'none'
-version: 2.5.8+11
+version: 2.5.8+12
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
