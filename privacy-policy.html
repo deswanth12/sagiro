@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Sagiro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0A0D14;
+            --surface: #121824;
+            --surface-border: #1E283A;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --primary: #00F0FF;
+            --secondary: #10B981;
+            --accent: #6366F1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0 30px;
+            border-bottom: 1px solid var(--surface-border);
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #94A3B8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .effective-date {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            padding: 28px;
+            margin-bottom: 28px;
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.05) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 2px;
+            display: inline-block;
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 14px;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 14px;
+        }
+
+        li {
+            color: var(--text-secondary);
+            font-size: 14.5px;
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        .forbidden-list li::before {
+            content: "✕";
+            color: #F43F5E;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+            color: var(--primary);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--surface-border);
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">Privacy Guarantee</div>
+            <h1>Sagiro Privacy Policy</h1>
+            <p class="effective-date">Package: <code>com.deshu.sagiro.app</code> • Effective Date: August 16, 2026</p>
+        </div>
+
+        <div class="card highlight-card">
+            <h2>Our Core Privacy Commitment</h2>
+            <p><strong>Sagiro is designed from the ground up on a 100% On-Device, Privacy-First Architecture.</strong></p>
+            <p>We believe your personal finances are strictly your personal business. Sagiro does not sell, monetize, upload, or share your financial data, transaction details, or SMS messages with any third-party company or server.</p>
+        </div>
+
+        <div class="card">
+            <h2>1. Information We Process & How It Is Handled</h2>
+            <p><strong>A. SMS Messages (Financial Transaction Parsing)</strong></p>
+            <ul>
+                <li><strong>Strict Local Processing:</strong> When you grant SMS permission (<code>READ_SMS</code> / <code>RECEIVE_SMS</code>), Sagiro strictly filters and parses alphanumeric financial transactional alerts from Indian banks (e.g., HDFC, SBI, ICICI, Axis, UPI transactions).</li>
+                <li><strong>Zero Data Upload:</strong> All parsing algorithms, deduplication rules, and categorization logic execute entirely inside your local device processor and SQLite database.</li>
+                <li><strong>No Personal Chats Read:</strong> Personal messages, one-time passwords (OTPs), and non-financial messages are ignored and discarded.</li>
+            </ul>
+
+            <p><strong>B. Account Information (Optional Google Sign-In)</strong></p>
+            <ul>
+                <li>If you choose to sign in with your Google account via Firebase Authentication, we only receive basic profile metadata (your name, email address, and avatar) to personalize your greeting and enable secure Private Sync.</li>
+                <li>You can also use Sagiro completely anonymously as a Guest without signing in.</li>
+            </ul>
+
+            <p><strong>C. Audio & Receipt Image Processing (Optional)</strong></p>
+            <ul>
+                <li><strong>Voice Expense Entry:</strong> Audio is converted to text locally on your device via standard OS speech services. Zero raw voice recordings are stored or sent to remote servers.</li>
+                <li><strong>Receipt Scan / OCR:</strong> Image text extraction happens locally on your device hardware.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>2. Things We Never Do</h2>
+            <ul class="forbidden-list">
+                <li>We <strong>NEVER</strong> upload your financial transactions or bank balances to our servers.</li>
+                <li>We <strong>NEVER</strong> sell, rent, or trade your data to credit rating agencies, lenders, or advertisers.</li>
+                <li>We <strong>NEVER</strong> show third-party advertising or trackers inside the app.</li>
+                <li>We <strong>NEVER</strong> access your contacts, personal chat messages, photos, or GPS location.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>3. Cloud Backup & Private Sync™ (Google Drive E2EE)</h2>
+            <p>If you enable <strong>Private Sync™</strong>, your encrypted backups are saved directly to your personal Google Drive <code>appDataFolder</code> (a hidden folder accessible only by your app installation).</p>
+            <ul>
+                <li>Backups are encrypted on-device with industry-standard <strong>AES-256-GCM</strong> encryption.</li>
+                <li>Our team and servers have zero access to your Google Drive or your encrypted backup files.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>4. App Security & Biometric Lock</h2>
+            <p>Sagiro offers on-device security controls including:</p>
+            <ul>
+                <li><strong>Biometric & Passcode Lock:</strong> Requires Fingerprint / Face Unlock or device PIN to access the application.</li>
+                <li><strong>Hide Balances on Launch:</strong> Masks numerical balance figures until tapped to prevent shoulder-surfing in public.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>5. Data Deletion & User Control</h2>
+            <p>You have absolute control over your data at all times:</p>
+            <ul>
+                <li><strong>Delete All Data:</strong> You can permanently wipe all stored transactions, categories, budgets, and settings at any time by navigating to <strong>Settings → Danger Zone → Reset App Data</strong>.</li>
+                <li><strong>Uninstalling the App:</strong> Uninstalling Sagiro immediately removes the local SQLite database from your device.</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>6. Contact Us</h2>
+            <p>If you have any questions or feedback regarding this Privacy Policy or your data privacy, please contact the developer team at:</p>
+            <p>📧 Email: <a href="mailto:deshanth@sagiro.app">deshanth@sagiro.app</a></p>
+        </div>
+
+        <div class="footer">
+            <p>© 2026 Sagiro (com.deshu.sagiro.app). All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

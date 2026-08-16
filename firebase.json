@@ -1,0 +1,13 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "sagiro-app",
+          "appId": "1:657194860112:android:85b8b7e70388db626c9b55",
+          "fileOutput": "android/app/google-services.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      READ_SMS & RECEIVE_SMS: Required for core functionality — automatic real-time bank SMS parsing.
+      This permission is justified because the app's primary feature is parsing local
+      bank transaction SMS messages for offline expense tracking.
+      No SMS data is uploaded to any server. All processing is strictly 100% on-device.
+    -->
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!--
+      INTERNET: Required for:
+        • Firebase Authentication and Google Sign-In
+        • Google Play in-app purchase validation
+        • Google Fonts (Plus Jakarta Sans) runtime loading
+      No user financial data, SMS content, or transaction data is transmitted
+      over the internet. All SMS parsing and expense tracking is strictly on-device.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!--
+      RECORD_AUDIO: Required for direct in-app voice expense entry via SpeechToText.
+      Audio is processed strictly locally / via OS speech services; zero raw audio is uploaded.
+    -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!--
+      POST_NOTIFICATIONS: Required on Android 13+ (API 33+) for local transaction
+      and budget alert notifications via flutter_local_notifications.
+    -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+
+    <application
+        android:label="Sagiro"
+        android:name="${applicationName}"
+        android:icon="@mipmap/ic_launcher"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="false"
+        android:allowBackup="false"
+        android:fullBackupContent="false">
+        
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:taskAffinity=""
+            android:theme="@style/LaunchTheme"
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+            android:hardwareAccelerated="true"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+              android:name="io.flutter.embedding.android.NormalTheme"
+              android:resource="@style/NormalTheme"
+              />
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Real-Time Bank SMS BroadcastReceiver -->
+        <receiver
+            android:name=".SmsReceiver"
+            android:exported="true"
+            android:permission="android.permission.BROADCAST_SMS">
+            <intent-filter android:priority="999">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <meta-data
+            android:name="flutterEmbedding"
+            android:value="2" />
+    </application>
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
+</manifest>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="100%">
+  <rect width="800" height="200" rx="32" fill="#07120E"/>
+  <g transform="translate(120, 100) scale(0.45)">
+    <polygon points="-24,136 -120,136 -72,24 40,24 104,136" fill="#087F5B"/>
+    <polygon points="24,-136 120,-136 72,-24 -40,-24 -104,-136" fill="#A8E063"/>
+    <polygon points="-40,-24 72,-24 40,24 -72,24" fill="#FFFFFF"/>
+  </g>
+  <text x="240" y="95" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="54" letter-spacing="10">SAGIRO</text>
+  <text x="242" y="135" fill="#A8E063" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="16" letter-spacing="3">YOUR MONEY, SIMPLIFIED.</text>
+</svg>

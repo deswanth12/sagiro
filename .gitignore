@@ -1,0 +1,80 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Android signing secrets — NEVER commit these to version control
+android/key.properties
+*.jks
+*.keystore
+android/app/*.jks
+android/app/*.keystore
+
+# Firebase configuration
+android/app/google-services.json
+ios/Runner/GoogleService-Info.plist
+
+# iOS Pods — regenerable via `pod install`
+/ios/Pods/
+/ios/.symlinks/
+ios/Podfile.lock
+
+# iOS build artifacts
+/ios/build/
+/ios/DerivedData/
+
+# Web app — node_modules and build outputs are regenerable
+web_app/node_modules/
+web_app/dist/
+web_app/.vite/
+
+# Backup archives — never commit local backup zips
+*.ppbackup
+*.zip
+paisapilot_frozen_backup.zip
+*.apk
+*.aab
+Sagiro-*.apk
+
+# SQLCipher migration temp files (created and immediately deleted at runtime,
+# but guard against any crash-leftover on disk)
+*.db.sqlcipher_tmp

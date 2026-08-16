@@ -1,0 +1,71 @@
+name: sagiro
+description: "Sagiro - Your money, simplified"
+publish_to: 'none'
+version: 2.5.8+11
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.24.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Local persistence — SQLCipher encrypts the on-disk DB file with a
+  # 256-bit key stored in Android Keystore / iOS Keychain (Finding 1 fix).
+  sqlcipher_flutter_libs: ^0.6.4
+  sqflite_sqlcipher: ^3.1.0
+  path: ^1.9.0
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.2.2
+  local_auth: ^2.2.0
+
+  # State management
+  provider: ^6.1.2
+
+  # UI & typography
+  intl: ^0.19.0
+  google_fonts: ^6.2.1
+
+  # Ingestion & Voice
+  file_picker: ^8.0.3
+  csv: ^6.0.0
+  permission_handler: ^11.3.1
+  flutter_sms_inbox: ^1.0.3
+  speech_to_text: ^6.6.0
+  # NOTE: Real-time SMS listening is implemented via a custom
+  # Android BroadcastReceiver (see android/app/src/main/kotlin/.../SmsReceiver.kt)
+  flutter_local_notifications: ^17.1.2
+
+  # Cryptography (Finding 5 fix: removed unused `encrypt` package — pointycastle
+  # is used directly for AES-256-GCM; `encrypt` was never imported in lib/).
+  crypto: ^3.0.3
+  archive: ^4.0.9
+  pointycastle: ^3.9.1
+
+  # Monetization & Auth
+  in_app_purchase: ^3.2.0
+  firebase_core: ^3.15.2
+  firebase_auth: ^5.7.0
+  google_sign_in: ^6.2.2
+  syncfusion_flutter_pdf: ^29.1.38
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  sqflite_common_ffi: ^2.3.3
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/sagiro_launcher_full.png"
+  min_sdk_android: 21
+  adaptive_icon_background: "#07120E"
+  adaptive_icon_foreground: "assets/sagiro_launcher_foreground.png"
+
+flutter:
+  uses-material-design: true

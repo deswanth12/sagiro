@@ -1,0 +1,8 @@
+# Release Signing Properties Template for Sagiro
+# Generate release keystore using keytool:
+# keytool -genkey -v -keystore android/app/release.keystore -alias sagiro-key -keyalg RSA -keysize 2048 -validity 10000
+
+storePassword=SAGIRO_RELEASE_KEYSTORE_PASSWORD
+keyPassword=SAGIRO_RELEASE_KEY_PASSWORD
+keyAlias=sagiro-key
+storeFile=release.keystore
