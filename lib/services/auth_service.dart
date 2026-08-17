@@ -32,18 +32,35 @@ class AuthService {
   Future<UserCredential?> signInWithGoogle() async {
     debugPrint('[Auth] Google Sign-In flow started');
     try {
-      final GoogleSignIn googleSignIn = kIsWeb
+      // On Android, Google Play Services automatically reads the package name and SHA-1 certificate
+      // from google-services.json when serverClientId is omitted or uses default discovery.
+      GoogleSignIn googleSignIn = kIsWeb
           ? GoogleSignIn(
               clientId: webClientId,
               scopes: ['email', 'profile'],
             )
           : GoogleSignIn(
-              serverClientId: webClientId,
               scopes: ['email', 'profile'],
             );
 
       debugPrint('[Auth] Credential request started');
-      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
+      GoogleSignInAccount? googleUser;
+      try {
+        googleUser = await googleSignIn.signIn();
+      } catch (err) {
+        debugPrint('[Auth] Primary sign-in attempt exception: $err');
+        // If default discovery fails, attempt with serverClientId as fallback
+        if (!kIsWeb) {
+          debugPrint('[Auth] Attempting fallback with serverClientId');
+          final fallbackSignIn = GoogleSignIn(
+            serverClientId: webClientId,
+            scopes: ['email', 'profile'],
+          );
+          googleUser = await fallbackSignIn.signIn();
+        } else {
+          rethrow;
+        }
+      }
       if (googleUser == null) {
         debugPrint('[Auth] Google Sign-In was cancelled by user');
         return null; // User canceled sign-in
