@@ -18,7 +18,7 @@ class PremiumPage extends StatefulWidget {
 }
 
 class _PremiumPageState extends State<PremiumPage> {
-  int _selectedPlanIndex = 2; // 2 = Lifetime Pro (₹499 Default Hero)
+  SubscriptionPlanType _selectedPlanType = SubscriptionPlanType.proLifetime;
 
   Future<bool> _ensureGoogleSignIn(BuildContext context) async {
     final authProvider =
@@ -107,9 +107,10 @@ class _PremiumPageState extends State<PremiumPage> {
                 SubscriptionPlan.proLifetime,
               ];
 
-        final selectedPlan = _selectedPlanIndex < plans.length
-            ? plans[_selectedPlanIndex]
-            : plans.last;
+        final selectedPlan = plans.firstWhere(
+          (p) => p.type == _selectedPlanType,
+          orElse: () => SubscriptionPlan.proLifetime,
+        );
         final bgColor = AppTheme.backgroundColor(context);
         final surfaceColor = AppTheme.surfaceColor(context);
         final textPrimary = AppTheme.textPrimaryColor(context);
@@ -253,9 +254,10 @@ class _PremiumPageState extends State<PremiumPage> {
                   priceText: '₹699',
                   periodText: 'Pay Once. Own Forever.',
                   badgeText: '⭐ MOST POPULAR • OWN IT FOREVER',
-                  isSelected: _selectedPlanIndex == 2,
+                  isSelected: _selectedPlanType == SubscriptionPlanType.proLifetime,
                   features: SubscriptionPlan.proLifetime.features,
-                  onTap: () => setState(() => _selectedPlanIndex = 2),
+                  onTap: () => setState(
+                      () => _selectedPlanType = SubscriptionPlanType.proLifetime),
                 ),
                 const SizedBox(height: 14),
 
@@ -264,9 +266,10 @@ class _PremiumPageState extends State<PremiumPage> {
                   priceText: '₹499',
                   periodText: '/ year',
                   badgeText: 'Save 38%',
-                  isSelected: _selectedPlanIndex == 1,
+                  isSelected: _selectedPlanType == SubscriptionPlanType.proYearly,
                   features: SubscriptionPlan.proYearly.features,
-                  onTap: () => setState(() => _selectedPlanIndex = 1),
+                  onTap: () => setState(
+                      () => _selectedPlanType = SubscriptionPlanType.proYearly),
                 ),
                 const SizedBox(height: 14),
 
@@ -274,9 +277,10 @@ class _PremiumPageState extends State<PremiumPage> {
                   title: 'Pro Monthly',
                   priceText: '₹67',
                   periodText: '/ month',
-                  isSelected: _selectedPlanIndex == 0,
+                  isSelected: _selectedPlanType == SubscriptionPlanType.proMonthly,
                   features: SubscriptionPlan.proMonthly.features,
-                  onTap: () => setState(() => _selectedPlanIndex = 0),
+                  onTap: () => setState(
+                      () => _selectedPlanType = SubscriptionPlanType.proMonthly),
                 ),
                 const SizedBox(height: 24),
 
